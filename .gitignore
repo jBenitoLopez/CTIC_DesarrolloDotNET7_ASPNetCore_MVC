@@ -73,3 +73,7 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+
+.dtbcache.v2
+.futdcache.v2
+.vs/
