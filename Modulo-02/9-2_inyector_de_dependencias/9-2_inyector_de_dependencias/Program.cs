@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Hosting.Server;
+
 var builder = WebApplication.CreateBuilder(args);
 // ----
 //builder.Services.AddControllersWithViews();
@@ -35,13 +37,43 @@ var builder = WebApplication.CreateBuilder(args);
 //};
 //builder.Services.AddSingleton(singleton);
 
-
-
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+//app.MapGet("/", () => "Hello World!");
+// ----
+app.MapGet("/", () =>
+    app.Environment.IsDevelopment()
+        ? "Hello developer!"
+        : "Hello user!"
+);
+
+// ----
+if (app.Environment.IsEnvironment("Home"))
+{
+    app.MapGet("/home", () => "This is only available for Home environment");
+}
+
+// ----
+//if (builder.Environment.IsDevelopment())
+//{
+//    builder.Services.AddSingleton<ISender, FakeSender>();
+//}
+//else
+//{
+//    builder.Services.AddSingleton<ISender, EmailSender>();
+//}
+
+
+
+// ----
+var currentEnvironmentName = builder.Environment.EnvironmentName;
+// O bien:
+// var app = builder.Build();
+// var currentEnvironmentName = app.Environment.EnvironmentName;
+app.MapGet("/environment", () => app.Environment.EnvironmentName);
 
 //app.MapDefaultControllerRoute();
+
 
 
 app.Run();
