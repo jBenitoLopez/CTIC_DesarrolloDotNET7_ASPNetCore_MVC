@@ -14,6 +14,7 @@ var app = builder.Build();
 app.UseFileServer(new FileServerOptions
 {
     RequestPath = "/static",
+    //https://localhost:7172/static/
     EnableDirectoryBrowsing = true,
     EnableDefaultFiles = true,
 });
