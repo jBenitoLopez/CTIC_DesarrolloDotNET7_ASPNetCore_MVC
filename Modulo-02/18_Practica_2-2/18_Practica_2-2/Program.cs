@@ -1,9 +1,10 @@
-//using _18_Practica_2_2.Middlewares.CustomErrorPage;
-
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 app.UseStatusCodePagesWithReExecute("/error/show/{0}");
+
+app.MapGet("/", () => "Hello World!");
+
 
 if (!app.Environment.IsDevelopment())
 {
