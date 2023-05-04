@@ -1,0 +1,18 @@
+﻿body {
+    font-family: arial;
+}
+
+h1 {
+    font-size: 32px;
+    color: #5E889E;
+}
+
+span.statusCode {
+    color: red;
+    font-size: 36px;
+}
+
+h1 img {
+    height: 32px;
+    vertical-align: text-bottom;
+}
