@@ -35,6 +35,7 @@ var app = builder.Build();
 #endregion one
 
 #region two
+    // "one" es equivalente a esto
     app.MapGet("/hello/{name}", (string name) =>
     {
         return $"Hello {name}!";
