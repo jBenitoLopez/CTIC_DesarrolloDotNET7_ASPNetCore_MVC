@@ -1,4 +1,6 @@
-﻿namespace _19_6_posibilidades_Minimal_APIs
+﻿using System.Diagnostics;
+
+namespace _19_6_posibilidades_Minimal_APIs
 {
     public class MiniProfiler : IEndpointFilter
     {
