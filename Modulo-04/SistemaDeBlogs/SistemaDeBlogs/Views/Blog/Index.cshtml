@@ -1,0 +1,31 @@
+﻿@*@model SistemaDeBlogs.Models.Entities.Post
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+<div class="post-body">
+    @Model.Text
+</div>
+
+<div>
+    Posted by @Model.Author
+    on @Model.Date.ToString("d")
+</div>*@
+@model IEnumerable<SistemaDeBlogs.Models.Entities.Post>
+@{
+   ViewData["Title"] = "Latest posts";
+}
+<h2>@ViewData["Title"]</h2>
+<ul>
+@foreach (var post in Model)
+{
+   <li>
+      <h3>@post.Title</h3>
+      <div>
+         Posted by @post.Author on @post.Date.ToString("d")
+      </div>
+   </li>
+}
+</ul>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SistemaDeBlogs.Models.Entities.Post>
+
+@{
+    ViewData["Title"] = "Blog archive";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@{
+    var firstPost = Model.FirstOrDefault();
+    var index = 0;
+
+    if (firstPost != null)
+    {
+        <h3>@firstPost.Date.ToString("MMMM yyyy"):</h3>
+        <ul>
+            @foreach (var post in Model)
+            {
+                string style = (index++ % 2 == 0) ? null : "background-color: #f5f5f5";
+                <li style="@style">
+                    <h3>@post.Title</h3>
+                    <div>Posted by @post.Author on @post.Date.ToString("d")</div>
+                </li>
+            }
+        </ul>
+    }
+}
