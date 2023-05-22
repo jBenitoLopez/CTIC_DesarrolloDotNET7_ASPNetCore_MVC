@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Latest posts";
+}
+<h2>@ViewData["Title"]</h2>
+<ul>
+    @foreach (var post in Model)
+    {
+        <li>
+            <h3>@post.Title</h3>
+            <div>
+                Posted by @post.Author on @post.Date.ToString("d")
+            </div>
+        </li>
+    }
+</ul>

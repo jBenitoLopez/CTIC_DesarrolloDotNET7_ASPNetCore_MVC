@@ -1,0 +1,17 @@
+﻿@model _07_DEMO_anhadiendo_funcionalidades.Models.Entities.Post
+
+@{
+    // https://localhost:7163/blog/welcome-to-mvc
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+<div class="post-body">
+    @Model.Text
+</div>
+
+<div>
+    Posted by @Model.Author
+    on @Model.Date.ToString("d")
+</div>
