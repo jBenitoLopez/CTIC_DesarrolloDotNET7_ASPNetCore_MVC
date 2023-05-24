@@ -1,0 +1,29 @@
+﻿@using System.Linq
+@model Practica4.Models.Entities.Post
+@{
+    ViewData["Title"] = Model.Title;
+}
+<h2>@Model.Title</h2>
+<div class="post-body">
+    @Model.Text
+</div>
+<div>
+    Posted by @Model.Author
+    on @Model.Date.ToString("d")
+</div>
+@if (Model.Comments.Any())
+{
+    <h4>Comments</h4>
+    <ul>
+        @foreach (var comment in Model.Comments)
+        {
+            <li>
+                <div>@comment.Author on @comment.Date.ToString("d") said</div>
+                <cite>@comment.Text</cite>
+            </li>
+        }
+    </ul>
+}
+<div>
+    <a href="javascript:history.back()">&larr; Back</a>
+</div>
