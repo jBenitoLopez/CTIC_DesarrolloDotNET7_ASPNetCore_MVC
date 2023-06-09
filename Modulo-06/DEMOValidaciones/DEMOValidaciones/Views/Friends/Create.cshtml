@@ -1,0 +1,38 @@
+﻿@model Friend
+
+
+<style>
+    .form-error {
+        color: red;
+        min-height: 1rem;
+    }
+</style>
+@*https://localhost:7175/friends/create*@
+
+<h1>Create friend</h1>
+<form method="post" action="@Url.Action("Create", "Friends")">
+    <div class="mb-3">
+        <label class="form-label">Name:</label>
+        <input class="form-control" type="text" name="name" value="@Model.Name" />
+        @*@ViewContext.ModelState.IsValid()*@     
+
+        <div class="form-error form-text">@Html.ValidationMessage("name")</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Age: </label>
+        <input class="form-control" type="number" name="age" value="@Model.Age"/>
+        <div class="form-error form-text">@Html.ValidationMessage("age")</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input class="form-control" type="text" name="email" value="@Model.Email"/>
+        <div class="form-error form-text">@Html.ValidationMessage("email")</div>
+    </div>
+
+@*    <label>Street: </label><br />
+    <input type="text" name="address.street" value="Wall Street 55" /><br />
+    <label>City:</label><br />
+    <input type="text" name="address.city" value="New York" /><br />*@
+    <hr />
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
