@@ -1,0 +1,19 @@
+﻿@model PdfFile
+<h1>PDF Genarator</h1>
+
+@*https://localhost:7121/Pdf/Download*@
+
+<form method="post" action="@Url.Action()">
+    <div class="mb-3">
+        <label class="form-label">File Name (PDF)</label>
+        <input class="form-control" type="text" name="FileName" value="@Model.FileName" />
+        <div class="form-text form-error">@Html.ValidationMessage("FileName")&nbsp;</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Text</label>
+        <input class="form-control" type="text" name="text" value="@Model.Text" />
+        <div class="form-text form-error">@Html.ValidationMessage("Text")&nbsp;</div>
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-primary">Download</button>
+</form>
