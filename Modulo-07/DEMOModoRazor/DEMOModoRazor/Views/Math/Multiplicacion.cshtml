@@ -1,0 +1,33 @@
+﻿@model int
+@{
+    ViewData["Title"] = $"Multiplaction table of {@Model}";
+
+}
+<h2>@ViewData["Title"]</h2>
+@{
+    <ul>
+        @for (int i = 1; i <= 10; i++)
+        {
+            <li>@Model * @i = @(Model * i)</li>
+        }
+    </ul>
+}
+
+<h2>Con Stilos</h2>
+@{
+    <ul>
+        @for (int i = 1; i <= 10; i++)
+        {
+            var style = i % 2 == 0 ? "background-color: red;" : "background-color: blue;";
+
+            <li style="@style">
+                Model * @i = @(Model * i)
+
+                @if (Model * i % 10 == 0)
+                {
+                    <span style="background-color: greenyellow;">&nbsp;Diez!&nbsp;</span>
+                }
+            </li>
+        }
+    </ul>
+}
