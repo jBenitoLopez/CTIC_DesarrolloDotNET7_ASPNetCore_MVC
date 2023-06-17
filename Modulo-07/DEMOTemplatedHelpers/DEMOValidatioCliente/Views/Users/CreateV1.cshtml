@@ -1,0 +1,56 @@
+﻿@model DEMOValidatioCliente.Models.ViewModels.CreateUserViewModel
+
+@{
+    ViewData["Title"] = "Crear user";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>
+    @DateTime.Now.ToString("T")
+</p>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Username)&nbsp;&nbsp;
+        @Html.ValidationMessageFor( m => m.Username)<br>
+        @Html.EditorFor(m => m.Username)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.FullName)&nbsp;&nbsp;
+        @Html.ValidationMessageFor( m => m.FullName)<br>
+        @Html.EditorFor(m => m.FullName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Email)&nbsp;&nbsp;
+        @Html.ValidationMessageFor( m => m.Email)<br>
+        @Html.EditorFor(m => m.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Password)&nbsp;&nbsp;
+        @Html.ValidationMessageFor( m => m.Password)<br>
+        @Html.EditorFor(m => m.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.RePassword)&nbsp;&nbsp;
+        @Html.ValidationMessageFor( m => m.RePassword)<br>
+        @Html.EditorFor(m => m.RePassword)
+    </div>
+
+    <div>
+        @Html.CheckBoxFor(m => m.Enabled)
+        @Html.ValidationMessageFor( m => m.Enabled)<br>
+        @Html.LabelFor(m => m.Enabled)&nbsp;&nbsp;
+    </div>
+    <hr />
+    <button>Create</button>
+}
+
+@section scripts
+    {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

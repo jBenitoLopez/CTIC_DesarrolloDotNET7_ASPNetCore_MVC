@@ -1,0 +1,22 @@
+﻿@model DEMOValidatioCliente.Models.ViewModels.CreateUserViewModel
+
+@{
+    ViewData["Title"] = "Crear user";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>
+    @DateTime.Now.ToString("T")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <hr />
+    <button>Create</button>
+}
+
+@section scripts
+    {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
